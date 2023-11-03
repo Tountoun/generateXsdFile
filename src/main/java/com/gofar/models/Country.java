@@ -1,11 +1,25 @@
 package com.gofar.models;
 
+import javax.xml.bind.annotation.*;
+
+@XmlRootElement(name = "country")
+@XmlAccessorType(value = XmlAccessType.FIELD)
+@XmlType(name = "country",
+        propOrder = {"name", "capital", "currency", "area", "population"})
 public class Country {
+
+    @XmlElement(required = true)
     private String name;
+    @XmlElement(required = true)
     private String capital;
+    @XmlElement(required = true)
     private Currency currency;
+    @XmlElement(required = true)
     private int population;
+    @XmlElement(required = true)
     private int area;
+    @XmlTransient
+    private String ignored;
 
     public String getName() {
         return name;
@@ -45,5 +59,13 @@ public class Country {
 
     public void setArea(int area) {
         this.area = area;
+    }
+
+    public String getIgnored() {
+        return ignored;
+    }
+
+    public void setIgnored(String ignored) {
+        this.ignored = ignored;
     }
 }

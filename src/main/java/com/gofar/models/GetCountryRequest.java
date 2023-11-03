@@ -1,5 +1,10 @@
 package com.gofar.models;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlRootElement(name = "countryRequest")
+@XmlType(name = "countryRequest", propOrder = {"name"})
 public class GetCountryRequest {
     private String name;
 
